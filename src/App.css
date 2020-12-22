@@ -4,7 +4,7 @@
 .custom-btn {
   padding: 10px;
   border: none;
-  margin-top: 20px;
+  margin-right: 10px;
   text-transform: uppercase;
   width: 80px;
   font-size: 0.9rem;
@@ -15,6 +15,12 @@
 .add-btn {
   background: #7ab97a;
   color: #fff;
+  margin-top: 20px;
+}
+
+.delete-btn {
+  background: #fa9c9c;
+  color: #000;
 }
 
 .grid-container {

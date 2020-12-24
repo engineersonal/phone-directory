@@ -10,13 +10,13 @@ export default class PhoneDirectory extends Component {
       subscribersList: [
         {
           id: 1,
-          name: "Shilpa Bhat",
-          phone: "8888888888",
+          name: "Anuj Sharma",
+          phone: "3333333333",
         },
         {
           id: 2,
-          name: "Srishti Gupta",
-          phone: "9999999999",
+          name: "Rohit Sharma",
+          phone: "7777777777",
         },
       ],
     };
@@ -33,9 +33,20 @@ export default class PhoneDirectory extends Component {
     this.setState({ subscriberList });
   };
 
+  deleteSubscriberHandler = (subscriberId) => {
+    let subscribersList = this.state.subscribersList;
+    let subscriberIndex = 0;
+    subscribersList.forEach(function (subscriber, index) {
+      if (subscriber.id === subscriberId) {
+        subscriberIndex = index;
+      }
+    }, this);
+    let newSubscribers = subscribersList;
+    newSubscribers.splice(subscriberIndex, 1);
+    this.setState({ subscribersList: newSubscribers });
+  };
+
   render() {
-    // return <AddSubscriber addSubscriberHandler={this.addSubscriberHandler} />;
-    // <ShowSubscribers subscribersList={this.state.subscribersList} />;
     return (
       <Router>
         <div>
@@ -46,6 +57,7 @@ export default class PhoneDirectory extends Component {
               <ShowSubscribers
                 {...props}
                 subscribersList={this.state.subscribersList}
+                deleteSubscriberHandler={this.deleteSubscriberHandler}
               />
             )}
           />

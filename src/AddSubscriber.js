@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Header from "./Header";
+import { Link } from "react-router-dom";
 import "./AddSubscriber.css";
 
 class AddSubscriber extends Component {
@@ -26,6 +27,7 @@ class AddSubscriber extends Component {
       name: "",
       phone: "",
     });
+    this.props.history.push("/");
   };
 
   render() {
@@ -34,7 +36,9 @@ class AddSubscriber extends Component {
       <div>
         <Header heading="Add Subscriber" />
         <div className="component-body-container">
-          <button className="custom-btn">Back</button>
+          <Link to="/">
+            <button className="custom-btn">Back</button>
+          </Link>
           <form
             className="subscriber-form"
             onSubmit={this.onFormSubmitted.bind(this)}
